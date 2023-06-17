@@ -1,9 +1,11 @@
-from BotanicaBeauty.webelements.UIElement import UIElement as Element
+from webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
+from webelements.actions import Actions
 
 
 class Filters:
     def __init__(self,browser):
+        self.actions = Actions(browser)
         self.categories_btn = Element(browser, By.XPATH, "//*[@id='categories_block']")
         self.categories_dropdown = Element(browser, By.ID, "ul_list_categories")
         self.black_friday_deals_btn = Element(browser, By.XPATH, "//*[@id='ul_list_categories']/li[1]")
@@ -73,3 +75,9 @@ class Filters:
         self.types_btn.click()
         self.types_dropdown.wait_until_visible()
         self.gift_cards_btn.click()
+
+    def move_the_left_slider(self):
+        self.actions.drag_and_drop(self.left_price_slider)
+
+    def move_the_right_element(self):
+        self.actions.drag_and_drop(self.right_price_slider)
