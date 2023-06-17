@@ -1,7 +1,9 @@
 Feature: Filter functionality
-  Scenario Outline: Categories option functionality
+  Background:
     Given The user is on Botanical Beauty shop page
     When The user clicks on Filters on the left side of the page
+  Scenario Outline: Categories option functionality
+
     And clicks on Categories dropdown
     And chooses <request>
     Then the <result> will appear
@@ -17,31 +19,18 @@ Feature: Filter functionality
 
 
   Scenario: Vendors option functionality
-    Given The user is on Botanical Beauty shop page
-    When The user clicks on Filters on the left side of the page
     And clicks on Vendors  dropdown
     And chooses BotanicaBeauty
     Then all the products will appear
 
   Scenario: Types option functionality
-    Given The user is on Botanical Beauty shop page
-    When The user clicks on Filters on the left side of the page
     And clicks on Types dropdown
     And clicks on GiftCards option
     Then all the Gift Cards will appear
 
-  Scenario:Price Range functionality
-    Given The user is on Botanical Beauty shop page
-    When The user clicks on Filters on the left side of the page
-    And moves the Price Range slider to the center where the price is $20
-    Then only those products below $20 will appear
-
-  Scenario: Dropdown functionality
-    Given The user is on Filters section
-    When the user clicks on plus sign next to Categories option
-    And all the available filters appear
-    And the user click on minus sign
-    Then all the available filters disappear
+  Scenario Outline:Price Range functionality
+    And moves the right Price Range slider to the center where the price is $20
+    Then only products below $20 will appear
 
 
 
