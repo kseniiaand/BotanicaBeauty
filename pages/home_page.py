@@ -1,13 +1,11 @@
-from BotanicaBeauty.webelements.UIElement import UIElement as Element
-from BotanicaBeauty.webdriver.common.by import  By
+from components import NavigationBar
 
 class HomePage:
     def __init__(self, browser):
         self.navbar = NavigationBar(browser)
-        self.shop_btn = Element(browser, By.XPATH, "//a[contains(text(),'Shop Now')]")
 
     def open_shop_all_products(self):
-        pass
+        self.navbar.shop_all_products()
 
-    def click_shop_btn(self):
-        self.shop_btn.click()
+    def open_new_products(self):
+        self.navbar.shop_new_products()
