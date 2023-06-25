@@ -29,8 +29,13 @@ Feature: Filter functionality
     Then all the Gift Cards will appear
 
   Scenario Outline:Price Range functionality
-    And moves the right Price Range slider to the center where the price is $20
-    Then only products below $20 will appear
+    And moves the <side> Price Range slider to the center where the price is $20
+    Then only products <price range> $20 will appear
+
+  Examples:
+    |side    |price range|
+    |right   |below      |
+    |left    |above      |
 
 
 
